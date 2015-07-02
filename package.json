@@ -10,26 +10,30 @@
     "authors"        : [
         "Eduardo García Sanz <eduardo@comakai.com>"
     ],
-    "keywords"       : ["react", "socket.io"],
+    "keywords"       : [
+        "react",
+        "socket.io"
+    ],
     "dependencies"   : {
+        "react"           : "0.13",
         "socket.io-client": "1.3"
     },
     "devDependencies": {
-        "jsdom"              : "5.4",
-        "mocha"              : "2.2",
-        "should"             : "7.0",
-        "eslint"             : "0.24",
-        "eslint-plugin-react": "2.5"
+        "proxyquire": "1.5",
+        "jsdom"     : "5.4",
+        "mocha"     : "2.2",
+        "should"    : "7.0",
+        "eslint"    : "0.24"
     },
     "scripts"        : {
         "lint": "eslint src",
         "test": "npm run lint && mocha"
     },
     "eslintConfig"   : {
-        "env"         : {
+        "env"  : {
             "node": true
         },
-        "rules"       : {
+        "rules": {
             "strict"                     : 0,
             "new-cap"                    : 0,
             "eqeqeq"                     : 2,
