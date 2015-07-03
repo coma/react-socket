@@ -70,3 +70,5 @@ module.exports = module.exports = React.createClass({
 	}
 });
 ```
+
+Every mounted socket gets disconnect before its component gets unmounted and the same goes to the events. 
