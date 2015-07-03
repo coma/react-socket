@@ -81,7 +81,7 @@ describe('The socket', function () {
         }).should.throw('There is no "faa" socket mounted.');
     });
 
-    it('return a socket by its name and throws an removes it on unmount', function () {
+    it('returns a socket by its name and throws an removes it on unmount', function () {
 
         var props = {
             url : 'foo:9000',
@@ -90,7 +90,7 @@ describe('The socket', function () {
 
         var rendered = render(props);
 
-        MockedSocket.socket('fin').should.be.ok;
+        MockedSocket.socket('fin').should.be.ok();
 
         rendered.unmount();
 
@@ -99,5 +99,21 @@ describe('The socket', function () {
             MockedSocket.socket('fin');
 
         }).should.throw('There is no "fin" socket mounted.');
+    });
+
+    it('mounts a default named socket', function () {
+
+        var props = {
+            url : 'http://wwww.somthinghere.fun:8080'
+        };
+
+        var rendered = render(props),
+            a        = MockedSocket.socket(),
+            b        = MockedSocket.socket('default');
+
+        a.should.be.ok();
+        a.should.equal(b);
+
+        rendered.unmount();
     });
 });
