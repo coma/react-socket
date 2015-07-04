@@ -21,7 +21,9 @@ module.exports = React.createClass({
 
         return {
             name   : 'default',
-            options: {}
+            options: {
+                forceNew: true
+            }
         };
     },
     statics             : {
