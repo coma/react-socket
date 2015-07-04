@@ -3,8 +3,8 @@
     "description"    : "A neat way of handling views on other components",
     "homepage"       : "https://github.com/coma/react-socket",
     "repository"     : "https://github.com/coma/react-socket",
-    "main"           : "./index.js",
-    "version"        : "0.1.0",
+    "main"           : "./src/index.js",
+    "version"        : "0.1.1",
     "license"        : "MIT",
     "private"        : false,
     "authors"        : [
