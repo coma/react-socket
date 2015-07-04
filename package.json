@@ -4,7 +4,7 @@
     "homepage"       : "https://github.com/coma/react-socket",
     "repository"     : "https://github.com/coma/react-socket",
     "main"           : "./src/index.js",
-    "version"        : "0.1.1",
+    "version"        : "0.1.2",
     "license"        : "MIT",
     "private"        : false,
     "authors"        : [

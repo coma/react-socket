@@ -16,13 +16,12 @@ module.exports = React.createClass({
     },
     componentWillMount  : function () {
 
-        Socket(this.props.socket)
-            .on(this.props.name, this.props.callback);
+        this.socket = Socket(this.props.socket);
+        this.socket.on(this.props.name, this.props.callback);
     },
     componentWillUnmount: function () {
 
-        Socket(this.props.socket)
-            .off(this.props.name, this.props.callback);
+        this.socket.off(this.props.name, this.props.callback);
     },
     render              : function () {
 
