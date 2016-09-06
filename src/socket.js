@@ -1,60 +1,60 @@
-var React = require('react'),
-    io    = require('socket.io-client');
+import React, { Component, PropTypes } from 'react';
 
-var sockets = {};
+export const NAME = 'default';
 
-module.exports = React.createClass({
-    displayName         : 'Socket',
-    propTypes           : {
-        url    : React.PropTypes.string,
-        name   : React.PropTypes.string,
-        options: React.PropTypes.shape({
-            reconnection        : React.PropTypes.bool,
-            reconnectionAttempts: React.PropTypes.number,
-            reconnectionDelay   : React.PropTypes.number,
-            reconnectionDelayMax: React.PropTypes.number,
-            randomizationFactor : React.PropTypes.number,
-            timeout             : React.PropTypes.number
-        })
-    },
-    getDefaultProps     : function () {
+const SOCKETS = {};
 
-        return {
-            name   : 'default',
-            options: {
-                forceNew: true
-            }
-        };
-    },
-    statics             : {
-        socket: function (name) {
+export const has = name => SOCKETS.hasOwnProperty(name);
 
-            name = name || 'default';
+export const get = (name = NAME) => {
 
-            if (!sockets.hasOwnProperty(name)) {
+    if (!has(name)) {
 
-                throw new Error('There is no "' + name + '" socket mounted.');
-            }
+        throw new Error(`There is no "${ name }" socket mounted.`);
+    }
 
-            return sockets[name];
-        }
-    },
-    componentWillMount  : function () {
+    return SOCKETS[name];
+};
 
-        if (sockets.hasOwnProperty(this.props.name)) {
+class Socket extends Component {
 
-            throw new Error('Another "' + this.props.name + '" socket is already mounted.');
+    componentWillMount () {
+
+        const {name, url, options} = this.props;
+
+        if (has(name)) {
+
+            throw new Error(`Another "${ name }" socket is already mounted.`);
         }
 
-        sockets[this.props.name] = io(this.props.url, this.props.options);
-    },
-    componentWillUnmount: function () {
+        SOCKETS[name] = io(url, options);
+    }
 
-        sockets[this.props.name].disconnect();
-        delete sockets[this.props.name];
-    },
-    render              : function () {
+    componentWillUnmount () {
+
+        const {name} = this.props;
+
+        SOCKETS[name].disconnect();
+        delete SOCKETS[name];
+    }
+
+    render () {
 
         return false;
     }
-});
+}
+
+Socket.displayName = 'Socket';
+
+Socket.propTypes = {
+    url    : PropTypes.string,
+    name   : PropTypes.string,
+    options: PropTypes.object
+};
+
+Socket.defaultProps = {
+    url : '/',
+    name: NAME
+};
+
+export default Socket;

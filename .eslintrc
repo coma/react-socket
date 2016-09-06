@@ -1,0 +1,44 @@
+{
+    "parser": "babel-eslint",
+    "env"   : {
+        "browser": true
+    },
+    "rules" : {
+        "no-class-assign"            : 2,
+        "no-confusing-arrow"         : 0,
+        "no-const-assign"            : 2,
+        "no-dupe-class-members"      : 2,
+        "no-new-symbol"              : 2,
+        "no-this-before-super"       : 2,
+        "no-useless-constructor"     : 2,
+        "no-var"                     : 2,
+        "arrow-body-style"           : [2, "as-needed"],
+        "arrow-parens"               : 0,
+        "arrow-spacing"              : [
+            2,
+            {
+                "before": true,
+                "after" : true
+            }
+        ],
+        "constructor-super"          : 2,
+        "object-shorthand"           : [2, "always"],
+        "prefer-arrow-callback"      : 2,
+        "prefer-const"               : 2,
+        "prefer-rest-params"         : 2,
+        "prefer-spread"              : 2,
+        "prefer-template"            : 1,
+        "template-curly-spacing"     : [2, "always"],
+        "strict"                     : 0,
+        "new-cap"                    : 0,
+        "eqeqeq"                     : 2,
+        "curly"                      : 2,
+        "quotes"                     : [1, "single"],
+        "no-unreachable"             : 2,
+        "space-before-blocks"        : 2,
+        "space-before-function-paren": 2,
+        "no-multi-spaces"            : 0,
+        "key-spacing"                : 0,
+        "no-mixed-requires"          : 0
+    }
+}
